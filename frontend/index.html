@@ -1,32 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Three Monkeys | Home</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/5.0.0/normalize.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Nova+Script" rel="stylesheet"> 
+  <script src="js/bootstrap.min.js"></script>
+    
+<style>
+
+   
+    
+</style>
 </head>
 <body>
 
 <div class="container">
-  <h2>Column Sizing</h2>
-  <p>The form below shows input elements with different widths using different .col-xs-* classes:</p>
+    
+    <center><br>
+        <img src="img/glass.png" class="img-responsive">
+        <h2 style="font-family: 'Nova Script', cursive;color:#28839c">Three Monkeys</h2>
+        <h3 style="font-family: 'Nova Script', cursive;color:#2d535e"><u>Menu</u></h3>
+    </center>
+
   <form method="GET" action="myscript.php">
     <div class="form-group">
-      <div class="col-xs-4">
-       <center><label for="ex2">Beer Name</label>
-        jupiler</center>
+        <div>
+            
+            
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Beer -
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+          <div class="row">
+         <div class="col-xs-4">
+                   <center><label for="ex2">Beer Name</label>
+                    jupiler</center>
+                  </div>
+                   <div class="col-xs-4">
+                  <center>  <label for="ex3">Price/unit</label>
+                    <div>2.2</div>
+                       </center>
+              </div>
+                  <div class="col-xs-4">
+                 <center> <label for="ex1">Quantity</label>
+                  <input class="form-control" name="quantity" type="number" placeholder="0"></center>
+                  </div>
+              </div>
+        </div>
       </div>
-       <div class="col-xs-4">
-      <center>  <label for="ex3">Price/unit</label>
-        <div>2.2</div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Cocktails - 
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+                    
+             <div class="row">
+         <div class="col-xs-4">
+                   <center><label for="ex2">Beer Name</label>
+                    jupiler</center>
+                  </div>
+                   <div class="col-xs-4">
+                  <center>  <label for="ex3">Price/unit</label>
+                    <div>2.2</div>
+                       </center>
+              </div>
+                  <div class="col-xs-4">
+                 <center> <label for="ex1">Quantity</label>
+                  <input class="form-control" name="quantity" type="number" placeholder="0"></center>
+                  </div>
+              </div>      
+          
       </div>
-      <div class="col-xs-4">
-     <center> <label for="ex1">Quantity</label>
-      <input class="form-control" name="quantity" type="number" placeholder="0"></center>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Appetisers -
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+             <div class="row">
+         <div class="col-xs-4">
+                   <center><label for="ex2">Beer Name</label>
+                    jupiler</center>
+                  </div>
+                   <div class="col-xs-4">
+                  <center>  <label for="ex3">Price/unit</label>
+                    <div>2.2</div>
+                       </center>
+              </div>
+                  <div class="col-xs-4">
+                 <center> <label for="ex1">Quantity</label>
+                  <input class="form-control" name="quantity" type="number" placeholder="0"></center>
+                  </div>
+              </div>
       </div>
+    </div>
+  </div>
+</div>
+
+            
+            
+                 
+            </div>
      
 
       
