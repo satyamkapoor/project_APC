@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{% block title %}Three Monkeys{% endblock %}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/css/bootstrap.css">
+  <link rel="stylesheet" href="/static/css/normalize.css">
+  <script src="/static/js/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Nova+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+  <script src="/static/js/bootstrap.min.js"></script>
+
+<style>
+    {% block for_order_summary %}
+
+    table{
+    text-align: center;
+   }
+
+    th{
+      text-align: center;
+    }
+    {% endblock %}
+
+    {% block for_orders_ready %}
+        table{
+    text-align: center;
+   }
+
+    th{
+      text-align: center;
+    }
+    td{
+      color: #c21111;
+      font-family: Impact,Serif,Georgia;
+      font-size: 4em;
+    }
+    {% endblock %}
+
+.img-responsive {
+    margin: 0 auto;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div style="text-align: center">
+        <br>
+        <img src="/static/img/glass.png" class="img-responsive">
+        <h2 style="font-family: 'Nova Script', cursive;color:#28839c">Three Monkeys</h2>
+        <h3 style="font-family: 'Nova Script', cursive;color:#2d535e"><u>Menu</u></h3>
+
+</div>
+    {% block body %}
+    {% endblock %}
+
+    </div>
+<br>
+<br><br><br>
+<div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+     <div style="text-align: center;"> <p class="navbar-text ">© 2017 | Three Monkeys, Ghent
+      </p>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+</body>
+</html>
