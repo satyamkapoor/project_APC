@@ -1,11 +1,28 @@
 from flask import Flask
 from flask import render_template
-from peewee import *
+from flaskext.mysql import MySQL
+
+
+#from peewee import *
 
 #from flask import request
 
+#con = db.connect(host='localhost', user='trevor', passwd='pw', db='aqi');
 
 app = Flask(__name__)
+mysql = MySQL(app)
+
+app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'mamprabha'
+app.config['MYSQL_DATABASE_DB'] = 'students'
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+
+@app.route('/sk')
+def users():
+    cur = cursor = mysql.get_db().cursor()
+    cur.execute('''SELECT * FROM table01''')
+    rv = cur.fetchall()
+    return str(rv)
 
 
 @app.route('/') #decorator - a function which covers around another function to do something super amazing...
@@ -23,6 +40,7 @@ def add(num1,num2):
         return render_template("homepage.html", **context)
 @app.route('/homepage/')
 def homepage():
+
     return render_template("index.html")
 
 if __name__ == '__main__':
