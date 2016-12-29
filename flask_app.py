@@ -12,10 +12,10 @@ from flaskext.mysql import MySQL
 app = Flask(__name__)
 mysql = MySQL(app)
 
-app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'mamprabha'
-app.config['MYSQL_DATABASE_DB'] = 'students'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+app.config['MYSQL_DATABASE_USER'] = 'satyamkapoor'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'MACS2016'
+app.config['MYSQL_DATABASE_DB'] = 'satyamkapoor$students'
+app.config['MYSQL_DATABASE_HOST'] = 'satyamkapoor.mysql.pythonanywhere-services.com'
 
 @app.route('/sk')
 def users():
@@ -23,9 +23,9 @@ def users():
     cur.execute('SELECT name FROM table01')
     data = cur.fetchall()
    # return render_template('list.html', data=data)
-    #return str(data)
-    context = {"rv": data}
-    return render_template('list.html', **context)
+    return str(data)
+    #context = {"rv": data}
+    #return render_template('list.html', **context)
 
 
 @app.route('/') #decorator - a function which covers around another function to do something super amazing...
