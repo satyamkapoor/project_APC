@@ -1,9 +1,10 @@
 <ol>
 
-    {% for rows in rv %}
-
-        <li>   {{ rows[["name"]] }} </li>
+    {% for col in rv %}
 
 
-         {% endfor %}
+        <li>   {{ col[0] }} </li>
+
+
+    {% endfor %}
 </ol>
