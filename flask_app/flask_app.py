@@ -20,8 +20,9 @@ app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 @app.route('/sk')
 def users():
     cur = cursor = mysql.get_db().cursor()
-    cur.execute('SELECT name FROM table01')
+    cur.execute('SELECT * FROM table01')
     data = cur.fetchall()
+    cur.close()
    # return render_template('list.html', data=data)
     #return str(data)
     context = {"rv": data}
