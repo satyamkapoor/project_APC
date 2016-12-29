@@ -20,9 +20,12 @@ app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 @app.route('/sk')
 def users():
     cur = cursor = mysql.get_db().cursor()
-    cur.execute('''SELECT * FROM table01''')
-    rv = cur.fetchall()
-    return str(rv)
+    cur.execute('SELECT name FROM table01')
+    data = cur.fetchall()
+   # return render_template('list.html', data=data)
+    #return str(data)
+    context = {"rv": data}
+    return render_template('list.html', **context)
 
 
 @app.route('/') #decorator - a function which covers around another function to do something super amazing...
