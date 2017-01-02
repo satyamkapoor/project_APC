@@ -42,9 +42,9 @@ def add(num1,num2):
         context = {'Num1': num1, 'Num2': num2}
        #return "{}".format(num1+num2) #return needs to be in a string
         return render_template("homepage.html", **context)
+
 @app.route('/homepage/')
 def homepage():
-
     return render_template("index.html")
 
 if __name__ == '__main__':
