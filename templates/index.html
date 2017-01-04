@@ -18,21 +18,30 @@
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
+
+          {% for b in beer %}
+
+
+
           <div class="row">
          <div class="col-xs-4">
-                   <center><label for="ex2">Beer Name</label>
-                    jupiler</center>
+                   <center><label for="ex2">Beer Name</label><br>
+                    {{ b[1] }}</center>
                   </div>
                    <div class="col-xs-4">
                   <center>  <label for="ex3">Price/unit</label>
-                    <div>2.2</div>
+                    <div>{{ b[2] }}</div>
                        </center>
               </div>
                   <div class="col-xs-4">
                  <center> <label for="ex1">Quantity</label>
-                  <input class="form-control" name="quantity" type="number" placeholder="0"></center>
+                  <input class="form-control" name="{{ b[0] }}" type="number" placeholder="0"></center>
                   </div>
               </div>
+
+              {% endfor %}
+
+
         </div>
       </div>
     </div>
@@ -48,22 +57,27 @@
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="panel-body">
 
-             <div class="row">
+          {% for ctail in cocktail %}
+
+
+
+          <div class="row">
          <div class="col-xs-4">
-                   <center><label for="ex2">Beer Name</label>
-                    jupiler</center>
+                   <center><label for="ex2">Beer Name</label><br>
+                    {{ ctail[1] }}</center>
                   </div>
                    <div class="col-xs-4">
                   <center>  <label for="ex3">Price/unit</label>
-                    <div>2.2</div>
+                    <div>{{ ctail[2] }}</div>
                        </center>
               </div>
                   <div class="col-xs-4">
                  <center> <label for="ex1">Quantity</label>
-                  <input class="form-control" name="quantity" type="number" placeholder="0"></center>
+                  <input class="form-control" name="{{ ctail[0] }}" type="number" placeholder="0"></center>
                   </div>
               </div>
 
+              {% endfor %}
       </div>
     </div>
   </div>
@@ -77,21 +91,27 @@
     </div>
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="panel-body">
-             <div class="row">
+          {% for ap in app %}
+
+
+
+          <div class="row">
          <div class="col-xs-4">
-                   <center><label for="ex2">Beer Name</label>
-                    jupiler</center>
+                   <center><label for="ex2">Beer Name</label><br>
+                    {{ ap[1] }}</center>
                   </div>
                    <div class="col-xs-4">
                   <center>  <label for="ex3">Price/unit</label>
-                    <div>2.2</div>
+                    <div>{{ ap[2] }}</div>
                        </center>
               </div>
                   <div class="col-xs-4">
                  <center> <label for="ex1">Quantity</label>
-                  <input class="form-control" name="quantity" type="number" placeholder="0"></center>
+                  <input class="form-control" name="{{ ap[0] }}" type="number" placeholder="0"></center>
                   </div>
               </div>
+
+              {% endfor %}
       </div>
     </div>
   </div>
