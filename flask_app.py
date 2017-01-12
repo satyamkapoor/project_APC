@@ -13,10 +13,10 @@ from flask import request
 app = Flask(__name__)
 mysql = MySQL(app)
 
-app.config['MYSQL_DATABASE_USER'] = 'satyamkapoor'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'MACS2016'
-app.config['MYSQL_DATABASE_DB'] = 'satyamkapoor$students'
-app.config['MYSQL_DATABASE_HOST'] = 'satyamkapoor.mysql.pythonanywhere-services.com'
+app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'mamprabha'
+app.config['MYSQL_DATABASE_DB'] = 'python_apc'
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
 @app.route('/testui')
 def mynewfunc():
@@ -76,7 +76,8 @@ def homepage():
 
 @app.route('/step2/', methods=['POST','GET'])
 def second():
-    gh = request.args
+    gh = request.args.get('5')
+
     return ' {}'.format(gh)
 
 
