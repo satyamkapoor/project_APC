@@ -76,9 +76,9 @@ def homepage():
 
 @app.route('/step2/', methods=['POST','GET'])
 def second():
-    gh = request.args.get('5')
+    gh = request.args.get('4')
 
-    return ' {}'.format(gh)
+    return ' dsjkjkj {}'.format(gh)
 
 
 if __name__ == '__main__':
