@@ -1,6 +1,7 @@
 from flask import Flask, request
 from flask import render_template
 from flaskext.mysql import MySQL
+from flask import request
 
 
 #from peewee import *
@@ -71,6 +72,13 @@ def homepage():
     #data1 = cur1.fetchall()
     context = {"beer": data_beer,"cocktail" : data_cocktail,"app" : data_app }
     return render_template("index.html", **context)
+
+
+@app.route('/step2/', methods=['POST','GET'])
+def second():
+    gh = request.args
+    return ' {}'.format(gh)
+
 
 if __name__ == '__main__':
     app.run()
