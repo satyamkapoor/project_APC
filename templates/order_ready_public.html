@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>{% block title %}Three Monkeys{% endblock %}</title>
-  <meta charset="utf-8">
+  <title>Order Ready | Three Monkeys</title>
+   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/static/css/bootstrap.css">
   <link rel="stylesheet" href="/static/css/normalize.css">
@@ -13,12 +13,7 @@
 
 <style>
 
-
-
-
-
-
-        table{
+   table{
     text-align: center;
    }
 
@@ -27,14 +22,10 @@
     }
     td{
       color: #c21111;
-      font-family: Impact,Serif,Georgia;
+      font-family: impact;
       font-size: 4em;
     }
 
-
-.img-responsive {
-    margin: 0 auto;
-}
 </style>
 </head>
 <body>
@@ -43,15 +34,26 @@
 
 <div style="text-align: center">
         <br>
-        <img src="/static/img/glass.png" class="img-responsive">
+    <center> <img src="/static/img/glass.png" class="img-responsive"></center>
         <h2 style="font-family: 'Nova Script', cursive;color:#28839c">Three Monkeys</h2>
-        <h3 style="font-family: 'Nova Script', cursive;color:#2d535e"><u>Menu</u></h3>
+        <h3 style="font-family: 'Nova Script', cursive;color:#2d535e">Ready to take<u></u></h3>
 
 </div>
-    {% block body %}
-    {% endblock %}
 
-    </div>
+    <table class="table table-bordered" width="100%">
+ <br><br>
+    <tbody>
+    {% for b in date_view %}
+      <tr>
+        <td>{{ b[0] }}</td>
+        <td>{{ b[0] }}</td>
+        <td>{{ b[0] }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+ </div>
 <br>
 <br><br><br>
 <div class="navbar navbar-default navbar-fixed-bottom">
@@ -64,7 +66,11 @@
 
   </div>
 
-
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
 
 </body>
 </html>

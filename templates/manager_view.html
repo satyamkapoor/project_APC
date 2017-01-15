@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>{% block title %}Three Monkeys{% endblock %}</title>
-  <meta charset="utf-8">
+  <title>Manager View| Three Monkeys</title>
+   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/static/css/bootstrap.css">
   <link rel="stylesheet" href="/static/css/normalize.css">
@@ -13,28 +13,17 @@
 
 <style>
 
-
-
-
-
-
-        table{
+   table{
     text-align: center;
    }
 
     th{
       text-align: center;
     }
-    td{
-      color: #c21111;
-      font-family: Impact,Serif,Georgia;
-      font-size: 4em;
-    }
-
-
-.img-responsive {
+    .img-responsive {
     margin: 0 auto;
 }
+
 </style>
 </head>
 <body>
@@ -45,13 +34,27 @@
         <br>
         <img src="/static/img/glass.png" class="img-responsive">
         <h2 style="font-family: 'Nova Script', cursive;color:#28839c">Three Monkeys</h2>
-        <h3 style="font-family: 'Nova Script', cursive;color:#2d535e"><u>Menu</u></h3>
+    <h2 style="font-family: 'Nova Script', cursive;color:#28839c">Manager's View</h2>
+        <br>
+
+
 
 </div>
-    {% block body %}
-    {% endblock %}
+<h5>Orders Pending. Click to on order numbers to expand.</h5>
+    <ol>
 
-    </div>
+
+            {% for b in date_view %}
+      <li>
+          <a href="/orders_complete/{{ b[0] }}">{{ b[0] }}</a></li>
+      </li>
+      {% endfor %}
+
+
+    </ol>
+
+
+ </div>
 <br>
 <br><br><br>
 <div class="navbar navbar-default navbar-fixed-bottom">

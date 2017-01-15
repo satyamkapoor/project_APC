@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Order Summary | Three Monkeys</title>
+   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/css/bootstrap.css">
+  <link rel="stylesheet" href="/static/css/normalize.css">
+  <script src="/static/js/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Nova+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+  <script src="/static/js/bootstrap.min.js"></script>
+
+<style>
+
+   table{
+    text-align: center;
+   }
+
+    th{
+      text-align: center;
+    }
+    .img-responsive {
+    margin: 0 auto;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div style="text-align: center">
+        <br>
+        <img src="/static/img/glass.png" class="img-responsive">
+        <h2 style="font-family: 'Nova Script', cursive;color:#28839c">Three Monkeys</h2>
+        <h3 style="font-family: 'Nova Script', cursive;color:#2d535e"><u></u></h3>
+
+</div>
+<form method="POST" action="../complete_update/" class="form-horizontal">
+     <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for b in date_view %}
+      <tr>
+        <td>{{ b[6] }}</td>
+        <td>{{ b[2] }}</td>
+      </tr>
+      {% endfor %}
+
+
+       <input type="text" hidden name="ordr_no" value="{{ order }}">
+    </tbody>
+  </table>
+
+
+
+
+
+
+
+   <div class="container">
+      <div class="col-xs-1"></div>
+      <div class="col-xs-4"><center><button onclick="goBack()" type="button" class="btn btn-danger">Back</button></center>
+      </div>
+      <div class="col-xs-1"></div>
+      <div class="col-xs-4"><center><button type="submit" class="btn btn-success">Order Complete</button></center>
+      </div>
+      <div class="col-xs-1"></div>
+   </div>
+
+</form>
+
+ </div>
+<br>
+<br><br><br>
+<div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+     <div style="text-align: center;"> <p class="navbar-text ">© 2017 | Three Monkeys, Ghent
+      </p>
+      </div>
+    </div>
+
+
+  </div>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+</body>
+</html>
