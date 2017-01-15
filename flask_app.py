@@ -15,35 +15,10 @@ app = Flask(__name__)
 mysql = MySQL(app)
 
 
-app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'mamprabha'
-app.config['MYSQL_DATABASE_DB'] = 'python_apc'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
-
-@app.route('/testui')
-def mynewfunc():
-    return render_template('testui.html')
-
-@app.route('/test121',methods=['POST'])
-def datinsert():
-    valuein = request.form['2']
-    return 'output : {}'.format(valuein)
-
-
-@app.route('/sk')
-def users():
-    conn = mysql.connect()
-    cur = cursor = conn.cursor()
-    cur1 = cursor = mysql.get_db().cursor()
-    cur.execute('SELECT * FROM table01')
-    cur1.execute('SELECT name FROM table01')
-    data = cur.fetchall()
-    data1 = cur1.fetchall()
-    #return render_template('list.html', data=data)
-    #return str(data)
-    context = {"rv": data, "rv1":data1}
-    return render_template('list.html', **context)
-
+app.config['MYSQL_DATABASE_USER'] = 'satyamkapoor'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'python1212'
+app.config['MYSQL_DATABASE_DB'] = 'satyamkapoor$python_apc'
+app.config['MYSQL_DATABASE_HOST'] = 'satyamkapoor.mysql.pythonanywhere-services.com'
 
 @app.route('/') #decorator - a function which covers around another function to do something super amazing...
 @app.route('/<name>')
@@ -73,6 +48,9 @@ def homepage():
     data_cocktail = cur_cocktail.fetchall()
     data_app = cur_app.fetchall()
     #data1 = cur1.fetchall()
+    cur_beer.close()
+    cur_cocktail.close()
+    cur_app.close()
     context = {"beer": data_beer,"cocktail" : data_cocktail,"app" : data_app }
     return render_template("index.html", **context)
 
@@ -90,7 +68,7 @@ def second():
 
     cur_insert_init.execute("""INSERT into oreder_detail (order_no) VALUES (%s)""", (orde))
     conn98.commit()
-
+    conn98.close()
 
     con1 = mysql.connect()
 
@@ -107,6 +85,7 @@ def second():
 
             cur_insert.execute("""INSERT into orders (order_no, p_id, p_quantity) VALUES (%s,%s,%s)""",(orde,a,b))
             conn.commit()
+            conn.close()
             # second part started sql
 
             con1 = mysql.connect()
@@ -117,6 +96,7 @@ def second():
             data_two = cur_insert_two.fetchall()
             calculations(data_two,orde)
             con1.commit()
+            con1.close()
 
             con92 = mysql.connect()
             cur_insert_view = cursor = con92.cursor()
@@ -125,6 +105,7 @@ def second():
                                        WHERE  orders.p_id  = products.p_id AND orders.order_no = %s""", (orde))
             data_view = cur_insert_view.fetchall()
             con92.commit()
+            con92.close()
 
             con93 = mysql.connect()
             cur_insert_view_sum = cursor = con93.cursor()
@@ -132,6 +113,7 @@ def second():
             cur_insert_view_sum.execute("""SELECT * FROM oreder_detail WHERE order_no = %s""",(orde))
             data_view_sum = cur_insert_view_sum.fetchall()
             con93.commit()
+            con93.close()
     context = {"date_view": data_view,"date_view_sum" : data_view_sum}
     return render_template("summary.html", **context)
 
@@ -150,18 +132,21 @@ def calculations(dataone,orderno):
 
         cur_insert_three.execute("""UPDATE orders SET price = %s WHERE item_no = %s""", ((ppu,loopforprice[3])))
         conn2.commit()
+        conn2.close()
 
     conn34 = mysql.connect()
     cur_insert_four = cursor = conn34.cursor()
     cur_insert_four.execute("""SELECT SUM(price) from orders WHERE order_no = %s""",(ordern))
     sum = cur_insert_four.fetchall()
     conn34.commit()
+    conn34.close()
 
     conn35 = mysql.connect()
     cur_insert_five = cursor = conn35.cursor()
     for sumloop in sum:
         cur_insert_five.execute("""UPDATE oreder_detail SET total = %s WHERE order_no = %s""",(sumloop[0],ordern))
     conn35.commit()
+    conn35.close()
 
 @app.route('/step3/', methods=['POST','GET'])
 def third():
@@ -176,6 +161,7 @@ def third():
 
         cur_insert_five.execute("""UPDATE oreder_detail SET status = %s WHERE order_no = %s""", (1, b))
         conn35.commit()
+        conn35.close()
     print(b)
     context = {"ordrno": b}
     return render_template("ready.html", **context)
@@ -189,6 +175,7 @@ def order_complete(order_no = '1'):
                                            WHERE  orders.p_id  = products.p_id AND orders.order_no = %s""", (order_no))
     data_view = cur_insert_view.fetchall()
     con92.commit()
+    con92.close()
    # print(data_view)
     context = {"date_view": data_view,"order":order_no}
     return render_template("order_complete.html", **context)
@@ -206,6 +193,7 @@ def complete_update():
             cur_insert_view.execute("""UPDATE oreder_detail SET sucess = %s WHERE order_no = %s""", (1, b))
             data_view = cur_insert_view.fetchall()
             con92.commit()
+            con92.close()
         #print(data_view)
     return 'Information Updated'
 
@@ -217,6 +205,7 @@ def manager_view():
     cur_insert_view.execute("""SELECT * FROM oreder_detail WHERE  status  = 1 AND sucess = 0""")
     data_view = cur_insert_view.fetchall()
     con92.commit()
+    con92.close()
     # print(data_view)
     context = {"date_view": data_view}
     return render_template("manager_view.html", **context)
@@ -226,9 +215,10 @@ def final_ready():
     con92 = mysql.connect()
     cur_insert_view = cursor = con92.cursor()
 
-    cur_insert_view.execute("""SELECT order_no FROM oreder_detail WHERE  status  = 1 AND sucess = 1""")
+    cur_insert_view.execute("""SELECT order_no FROM oreder_detail WHERE  status  = 1 AND sucess = 1 LIMIT 4""")
     data_view = cur_insert_view.fetchall()
     con92.commit()
+    con92.close()
     # print(data_view)
     context = {"date_view": data_view}
     return render_template("order_ready_public.html", **context)
